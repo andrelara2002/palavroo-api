@@ -7,7 +7,7 @@ Baseada nas palavras disponibilizadas em um sistema de corretor ortográfico do 
 
 - /words: Requisição de todas as palavras disponíveis na Api, sem nenhum filtro
 
-* Método GET: Retorna um arquivo em JSON com todas as palavras da api individualmente em String.
+Método GET: Retorna um arquivo em JSON com todas as palavras da api individualmente em String.
 
 Retorno: ["batata", "frango"]
 
