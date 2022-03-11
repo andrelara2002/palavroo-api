@@ -3,11 +3,11 @@ Uma api que permite a busca de palavras do português de forma aleatória, para 
 
 Baseada nas palavras disponibilizadas em um sistema de corretor ortográfico do libreoffice (VERO), é uma api para requisição de palavras, com todas as palavras da língua portuguesa.
 
-#Rotas:
+# Rotas:
 
 - /words: Requisição de todas as palavras disponíveis na Api, sem nenhum filtro
 
-Método GET: Retorna um arquivo em JSON com todas as palavras da api individualmente em String.
+* Método GET: Retorna um arquivo em JSON com todas as palavras da api individualmente em String.
 
 Retorno: ["batata", "frango"]
 
