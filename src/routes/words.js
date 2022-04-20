@@ -6,21 +6,16 @@ const json_words = JSON.parse(words)
 
 const router = express.Router();
 
+function randomWordInRange(data) {
+    return Math.floor(Math.random() * (parseInt(data.length) - 0) + 0)
+}
+
 router.get('/words', (req, res) => {
-    res.json({
-        status: 200,
-        data: json_words,
-        success: true
-    })
+    res.send(json_words)
 })
 
 router.get('/random', (req, res) => {
-    const number = Math.floor(Math.random() * (parseInt(words.length) - 0) + 0);
-    res.json({
-        status: 200,
-        success: true,
-        data: json_words[number]
-    })
+    res.send(json_words[randomWordInRange(json_words)])
 })
 
 
@@ -28,16 +23,8 @@ router.get('/randomsize/:size', (req, res) => {
     const { size } = req.params
     try {
         const _size = parseInt(size)
-        const data = words.filter(x => x.length === _size);
-        console.log(`Words found: ${data}`)
-
-        const number = Math.floor(Math.random() * (parseInt(data.length) - 0) + 0);
-        res.json({
-            status: 200,
-            success: true,
-            data: data[number]
-        })
-
+        const data = json_words.filter(x => x.length === _size);
+        res.send(data[randomWordInRange(data)])
     }
     catch (err) {
         console.log(err)
