@@ -1,24 +1,23 @@
-# palavroo_api
-Uma api que permite a busca de palavras do português de forma aleatória, para jogos por exemplo
+# Palavroo API
+An API that allows the search of Portuguese words in a random manner, for use in games, for example.
 
-Baseada nas palavras disponibilizadas em um sistema de corretor ortográfico do libreoffice (VERO), é uma api para requisição de palavras, com todas as palavras da língua portuguesa.
+Based on the words provided in the VERO Portuguese spelling correction system, this API is for requesting words with all the words of the Portuguese language.
 
-# Rotas:
+## Routes:
+- /words: Request for all words available in the API, without any filter.
+GET Method: Returns a JSON file with all the words from the API individually as a string.
 
-- /words: Requisição de todas as palavras disponíveis na Api, sem nenhum filtro
+> Return: ["batata", "chicken", ...]
 
-Método GET: Retorna um arquivo em JSON com todas as palavras da api individualmente em String.
+- /random: Search for a random word of any size.
+GET Method: Returns a variable as a string with the random word.
 
-Retorno: ["batata", "frango"]
+> Return: "batata"
 
-- /random: busca por uma palavra aleatória de qualquer tamanho
+/randomsize/:size: Search for a random word with a specific size, passed as a query parameter.
+GET Method: Returns a variable as a string with the random word, only if you send an int as a parameter indicating the desired number of letters.
 
-Método GET: Retorna uma variável em String com a palavra aleatória
+> Return: "batata"
 
-Retorno: "batata"
-
-- /randomsize/:size : busca por palavra aleatória com o tamanho determinado, passado por query params
-
-Método GET: Retorna uma variável em String com a palavra aleatória, apenas se você enviar como parâmetro int a quantidade de letras deseajdas
-
-Retorno "batata"
+## Notes:
+For the moment, this only works in Portuguese
