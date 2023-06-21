@@ -42,8 +42,8 @@ module.exports = app */
 const express = require('express')
 const app = express();
 
-app.listen(PORT, () => {
-    console.log(`API listening on PORT ${PORT} `)
+app.listen(9000, () => {
+    console.log(`API listening on PORT ${9000} `)
 })
 
 app.get('/', (req, res) => res.send('Hello World'))
