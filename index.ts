@@ -47,3 +47,5 @@ app.get('/', (req: Request, res: Response) => {
 })
 
 connectToDatabaseAsync(MONGO_URI)
+
+module.exports = app
