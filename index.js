@@ -4,9 +4,9 @@ const express = require('express')
 
 /* const cors = require('cors') */
 
-const words = require('./src/routes/words')
+/* const words = require('./src/routes/words') */
 
-require('dotenv').config()
+/* require('dotenv').config() */
 
 const app = express();
 
