@@ -18,7 +18,7 @@ app.use(words)
 
 app.listen(process.env.PORT || SERVER_PORT)
     .on('listening', () => {
-        console.log(`Server running on port ${SERVER_PORT}`)
+        console.debug(`Server running on port ${SERVER_PORT}`)
     })
     .on('close', () => {
         console.warn('Server closed...')
