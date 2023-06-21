@@ -4,14 +4,14 @@ const express = require('express')
 
 /* const cors = require('cors') */
 
-/* const words = require('./src/routes/words') */
+const words = require('./src/routes/words')
 
 /* require('dotenv').config() */
 
 const app = express();
 
 /* app.use(cors()) */
-/* app.use(words) */
+app.use(words)
 
 app.listen(9000, () => {
     console.log(`API listening on PORT ${9000} `)
