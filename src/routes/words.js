@@ -13,3 +13,17 @@ router.get('/random', getRandomAsync)
 router.get('/randomsize/:size', getRandomInRangeAsync)
 
 module.exports = router;
+
+const express = require('express')
+const app = express();
+
+
+
+
+
+
+
+
+
+
+

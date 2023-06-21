@@ -1,4 +1,4 @@
-/* const connectToDatabaseAsync = require('./src/services/database')
+const connectToDatabaseAsync = require('./src/services/database')
 
 const express = require('express')
 
@@ -8,21 +8,15 @@ const words = require('./src/routes/words')
 
 require('dotenv').config()
 
-const { SERVER_PORT, MONGO_URI } = process.env;
 const app = express();
 
 app.use(cors())
-
-//Defining routes to get words
 app.use(words)
 
-app.listen(process.env.PORT || SERVER_PORT)
-    .on('listening', () => {
-        console.debug(`Server running on port ${SERVER_PORT}`)
-    })
-    .on('close', () => {
-        console.warn('Server closed...')
-    })
+app.listen(9000, () => {
+    console.log(`API listening on PORT ${9000} `)
+})
+
 
 
 app.get('/', (req, res) => {
@@ -35,19 +29,6 @@ app.get('/', (req, res) => {
     )
 })
 
-connectToDatabaseAsync(MONGO_URI)
-
-module.exports = app */
-
-const express = require('express')
-const app = express();
-
-app.listen(9000, () => {
-    console.log(`API listening on PORT ${9000} `)
-})
-
-app.get('/', (req, res) => res.send('Hello World'))
-
-
+connectToDatabaseAsync('mongodb+srv://vercel-user:9FwW7HFCwErUha80@palavroo.fywqccu.mongodb.net/')
 
 module.exports = app
