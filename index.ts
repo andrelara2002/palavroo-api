@@ -36,7 +36,7 @@ app.listen(process.env.PORT || SERVER_PORT)
     })
 
 
-app.get('/', (req: Request, res: Response) => {
+app.get('/', (req: Request, res: any) => {
     res.json(
         {
             status: 200,
