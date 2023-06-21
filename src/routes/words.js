@@ -2,7 +2,7 @@ const express = require('express')
 
 const router = express.Router();
 
-import { getAllAsync, getRandomAsync, getRandomInRangeAsync } from '../controller/WordController';
+const { getAllAsync, getRandomAsync, getRandomInRangeAsync } = require('../controller/WordController')
 
 
 

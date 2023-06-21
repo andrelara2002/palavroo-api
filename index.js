@@ -1,6 +1,4 @@
-import connectToDatabaseAsync from './src/services/database';
-
-import { Request, Response } from 'express';
+const connectToDatabaseAsync = require('./src/services/database')
 
 const express = require('express')
 const path = require('path')
@@ -36,7 +34,7 @@ app.listen(process.env.PORT || SERVER_PORT)
     })
 
 
-app.get('/', (req: Request, res: any) => {
+app.get('/', (req, res) => {
     res.json(
         {
             status: 200,

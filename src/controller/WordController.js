@@ -1,16 +1,11 @@
-import { Request, Response } from "express";
 
-import { WordModel } from "../model/WordModel";
+const { WordModel } = require('../model/WordModel')
 
-import IWord from "../interfaces/WordInterface";
-
-
-
-function randomInRange(range: number): number {
+function randomInRange(range) {
     return Math.floor(Math.random() * (range - 0) + 0)
 }
 
-async function randomWordBySizeAsync(length: number): Promise<IWord | undefined> {
+async function randomWordBySizeAsync(length) {
 
     const words = await WordModel.find({ length })
 
@@ -19,7 +14,7 @@ async function randomWordBySizeAsync(length: number): Promise<IWord | undefined>
     return words[index]
 }
 
-async function randomWordAsync(): Promise<IWord | null> {
+async function randomWordAsync() {
 
     const size = WordModel.length
 
@@ -32,27 +27,33 @@ async function randomWordAsync(): Promise<IWord | null> {
 
 
 
-export async function getAllAsync(req: Request, res: Response) {
+async function getAllAsync(req, res) {
 
     const data = await WordModel.find({})
 
     res.json(data)
 
 }
-export async function getRandomAsync(req: Request, res: Response) {
+async function getRandomAsync(req, res) {
 
     const data = await randomWordAsync()
 
     res.json(data)
 
 }
-export async function getRandomInRangeAsync(req: Request, res: Response) {
+async function getRandomInRangeAsync(req, res) {
 
     const { size } = req.params
 
     const data = await randomWordBySizeAsync(parseInt(size))
 
     res.json(data)
+}
+
+module.exports = {
+    getAllAsync,
+    getRandomAsync,
+    getRandomInRangeAsync,
 }
 
 

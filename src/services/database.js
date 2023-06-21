@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose')
 
-export default async function connectToDatabaseAsync(MONGO_URI) {
+async function connectToDatabaseAsync(MONGO_URI) {
 
     await mongoose.connect(MONGO_URI)
         .then(() => console.log('Connected to Database'))
@@ -10,3 +10,6 @@ export default async function connectToDatabaseAsync(MONGO_URI) {
             process.exit(1)
         })
 }
+
+
+module.exports = connectToDatabaseAsync
