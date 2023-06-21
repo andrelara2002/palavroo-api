@@ -1,4 +1,4 @@
-const connectToDatabaseAsync = require('./src/services/database')
+/* const connectToDatabaseAsync = require('./src/services/database')
 
 const express = require('express')
 
@@ -36,5 +36,20 @@ app.get('/', (req, res) => {
 })
 
 connectToDatabaseAsync(MONGO_URI)
+
+module.exports = app */
+
+const express = require('express')
+const app = express();
+
+app.listen(9000)
+    .on('listening', () => {
+        console.debug(`Server running on port ${SERVER_PORT}`)
+    })
+    .on('close', () => {
+        console.warn('Server closed...')
+    })
+
+app.get('/', (req, res) => res.send('Hello World'))
 
 module.exports = app
