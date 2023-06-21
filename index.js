@@ -1,8 +1,8 @@
-const connectToDatabaseAsync = require('./src/services/database')
+/* const connectToDatabaseAsync = require('./src/services/database') */
 
 const express = require('express')
 
-const cors = require('cors')
+/* const cors = require('cors') */
 
 const words = require('./src/routes/words')
 
@@ -10,7 +10,7 @@ require('dotenv').config()
 
 const app = express();
 
-app.use(cors())
+/* app.use(cors()) */
 /* app.use(words) */
 
 app.listen(9000, () => {
@@ -29,6 +29,6 @@ app.get('/', (req, res) => {
     )
 })
 
-connectToDatabaseAsync('mongodb+srv://vercel-user:9FwW7HFCwErUha80@palavroo.fywqccu.mongodb.net/')
+/* connectToDatabaseAsync('mongodb+srv://vercel-user:9FwW7HFCwErUha80@palavroo.fywqccu.mongodb.net/') */
 
 module.exports = app
