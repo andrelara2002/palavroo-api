@@ -1,4 +1,7 @@
-const fs = require('fs');
+import connectToDatabaseAsync from './src/services/database';
+
+import { Request, Response } from 'express';
+
 const express = require('express')
 const path = require('path')
 
@@ -10,7 +13,9 @@ const helmet = require('helmet') // Security from well known vulnerabilities
 
 const words = require('./src/routes/words')
 
-const SERVER_PORT = 3002;
+require('dotenv').config()
+
+const { SERVER_PORT, MONGO_URI } = process.env;
 const app = express();
 
 app.use(cors())
@@ -31,7 +36,7 @@ app.listen(process.env.PORT || SERVER_PORT)
     })
 
 
-app.get('/', (req, res) => {
+app.get('/', (req: Request, res: Response) => {
     res.json(
         {
             status: 200,
@@ -40,3 +45,5 @@ app.get('/', (req, res) => {
         }
     )
 })
+
+connectToDatabaseAsync(MONGO_URI)
