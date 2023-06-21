@@ -39,17 +39,23 @@ connectToDatabaseAsync(MONGO_URI)
 
 module.exports = app */
 
+// index.js
 const express = require('express')
-const app = express();
 
-app.listen(9000)
-    .on('listening', () => {
-        console.debug(`Server running on port ${SERVER_PORT}`)
-    })
-    .on('close', () => {
-        console.warn('Server closed...')
-    })
+const app = express()
+const PORT = 4000
 
-app.get('/', (req, res) => res.send('Hello World'))
+app.listen(PORT, () => {
+    console.log(`API listening on PORT ${PORT} `)
+})
 
+app.get('/', (req, res) => {
+    res.send('Hey this is my API running 🥳')
+})
+
+app.get('/about', (req, res) => {
+    res.send('This is my about route..... ')
+})
+
+// Export the Express API
 module.exports = app
